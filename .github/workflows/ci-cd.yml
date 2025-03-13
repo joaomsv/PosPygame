@@ -12,6 +12,24 @@ jobs:
       - name: Checkout do Código
         uses: actions/checkout@v3
 
+      - name: Configurar cache do Poetry
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.cache/pip
+          key: poetry-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            poetry-${{ runner.os }}-
+
+      - name: Instalar o Poetry
+        run: |
+            curl -sSL https://install.python-poetry.org | python3 -
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Instalar dependências
+        run: poetry install --no-root
+
       - name: Configuração do Ambiente
         run: echo "Ambiente configurado"
 
