@@ -34,4 +34,16 @@ jobs:
         run: echo "Ambiente configurado"
 
       - name: Execução de Testes
-        run: echo "Rodando testes..."
+        run: poetry run pytest
+
+      - name: Execução de flake8
+        run: poetry run flake8 jogo.py
+
+      - name: Execução de pylint
+        run: poetry run pylint jogo.py
+
+      - name: Execução de mypy
+        run: poetry run mypy jogo.py
+
+      - name: Execução de radon
+        run: poetry run radon cc jogo.py -a
