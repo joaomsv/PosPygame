@@ -1,0 +1,19 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
+      - name: Configuração do Ambiente
+        run: echo "Ambiente configurado"
+
+      - name: Execução de Testes
+        run: echo "Rodando testes..."

@@ -1,0 +1,25 @@
+[project]
+name = "pyjogo"
+version = "0.1.0"
+description = "aula 2"
+authors = [
+    {name = "Joao Vieira",email = "joaomarcossv@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pygame (>=2.6.1,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.2"
+pylint = "^3.3.5"
+mypy = "^1.15.0"
+radon = "^6.0.1"
+pytest = "^8.3.5"
+
